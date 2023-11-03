@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #009246; /* Groen */
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.pizza {
+    border: 1px solid #ccc;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px #888888;
+    max-width: 300px;
+    transition: transform 0.2s;
+}
+
+.pizza:hover {
+    transform: scale(1.05);
+}
+
+.pizza img {
+    width: 200px;
+    height: 150px;
+}
+
+.price {
+    font-weight: bold;
+    color: #ffcc29; /* Geel */
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.order-button {
+    background-color: #009246; /* Groen */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+}
+
+.order-button:hover {
+    background-color: #007A3D; /* Donkerder groen bij hover */
+}
+
+.description {
+    color: #666;
+    font-size: 16px;
+}
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+#shopping-cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#shopping-cart a img {
+    width: 50px;
+    height: 50px;
+}
+
+#logo {
+    position: absolute;
+    top: 10px;
+    right: 40;
+}
+
+#logo a img {
+    width: 130px;
+    height: 100px;
+}
+
+/* Reset some default styles for better consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Define general styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Style the header */
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 28px;
+}
+
+/* Style the section with orders */
+#orders {
+    margin: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#orders h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    background-color: #333;
+    color: #fff;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Center the footer text */
+footer p {
+    margin: 0;
+}
+
+/* Add hover effect to table rows (optional) */
+table tr:hover {
+    background-color: #ddd;
+}
