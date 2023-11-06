@@ -1,81 +1,87 @@
 
-import time, sys
-from flask import Flask
+import time
+import sys
+import requests
 from fhict_cb_01.custom_telemetrix import CustomTelemetrix
 
 com_port = "COM8"
 TimeDisplay = [10, 11]
+IndexInfo = "Baker Online.\nIndex:\nRed = No activity,\nYellow = active baking,\nGreen = baking Finished"
 
 RedLed = 4
 GreenLed = 5
 YellowLed = 7
-security = 0
-level = 0
-preLvl = 0 
 BtnLeft = 0
 BtnRight = 0
+BakeLVL = 0
+InfoLVL = 0
+SecurityLVL = 0
 
-
-Web = Flask(__name__)
-
-
-    
-if __name__ == "__main__":
-    pass
 def StartBaking():
+    #start a small time Loop as the 'baking' start
     global TimerValue
     board.displayShow(TimerValue)
     TimerValue -= 1
     time.sleep(0.5)
     
-
 def initialDisplay():
-
+    #setup display
     board.digital_write(TimeDisplay[0], 1)
     board.digital_write(TimeDisplay[1], 0)
-
-
-
+  
+   
 def BtnSetup():
+    #Sets the buttons Left & Right wit
     global BtnLeft
     global BtnRight
     BtnRight = board.digital_read(8)
     BtnLeft = board.digital_read(9)
-   
 
+def SendingStatus():
+    #sends the signal to function
+    LocalSignal = {'SignalVal' : 1}
+    localSignal = requests.post('http://127.0.0.1:5000/', json = LocalSignal)
+    if localSignal.status_code == 200:
+        print("Status_Sending")
+    else:
+        print("Status_Sending Failed", localSignal.statstatus_code)
+
+def Exiting():
+    #clears all the output signals
+    board.displayClear()
+    board.digital_write(RedLed, 0)
+    board.digital_write(GreenLed, 0)
+    board.digital_write(YellowLed, 0)
 def setup():
-    
+    #base Setup
     global board
     board = CustomTelemetrix(com_port)
     
-    #looks at button for any change press in or out as ann output
-    #board.set_pin_mode_digital_input_pullup(9, callback = BtnChange)
-    #this with board digital read out the btn status with 1 being on and 0 pressed, make sure you [0] the value output to get the 1/0 
-    #board.set_pin_mode_digital_input_pullup(8)
-
     board.set_pin_mode_analog_output(RedLed)
     board.set_pin_mode_analog_output(GreenLed)
     board.set_pin_mode_analog_output(YellowLed)
     board.set_pin_mode_digital_input_pullup(8)
     board.set_pin_mode_digital_input_pullup(9)
-
+     
+    requests.post('http://127.0.0.1:5000/', json = {'SignalVal': 0})
+    print(IndexInfo + "\nif you want display the index again press the right button for the index info.\nGood luck baking")
     initialDisplay()
-    
-
-    
-
-
-
+ 
 def loop():
     board.digital_write(RedLed, 1)
-    global level
-    global security
+    global BakeLVL
+    global InfoLVL
+    global SecurityLVL
     BtnSetup()
+  
+    if BtnRight:
+        InfoLVL = BtnLeft[0]
+        print(InfoLVL)
     if BtnLeft:
-        level = BtnLeft[0]
-        print(level)
+        BakeLVL = BtnLeft[0]
+    
 
-    if level == 0 and security == 1:
+    if BakeLVL == 0 and SecurityLVL == 1:
 
         print("hit")
         board.digital_write(RedLed, 0)
@@ -88,51 +94,20 @@ def loop():
             if TimerValue == -1:
                 board.digital_write(YellowLed, 0)
                 board.digital_write(GreenLed, 1)
+                #sends the signal flask site
+                SendingStatus()
                 time.sleep(3)
-                #sent signal to oder
                 break
-
+                
         board.digital_write(GreenLed, 0)
 
-    security = 1
-    time.sleep(1)
+    if InfoLVL == 0 and SecurityLVL == 1:
 
-    
-    
-def Exiting():
-    board.displayClear()
-    board.digital_write(RedLed, 0)
-    board.digital_write(GreenLed, 0)
-    board.digital_write(YellowLed, 0)
-def dumpster():
-    while True:
-            global i
-            i += 1
-            print(i)
-            if i == 10:
-                i = 0
-                break
-    localStatus = board.digital_read(8)
-  
-    if localStatus:
-        preLvl = localStatus[0]
-        print(preLvl)
-        time.sleep(0.2)
-        if preLvl == 0:
-            print("hit")
-
-    else:
-        print("no signal")
-
-    #default kit
-    countDownVal = 60
+        print(IndexInfo)
+    SecurityLVL = 1
     time.sleep(0.2)
-    while(countDownVal == 0):
-        print(countDownVal)   
-        Timer(countDownVal)
-        time.sleep(1)
-        countDownVal = countDownVal - 1
 
+#-------Executeing Program-----
 setup()
 while True:
         try:
@@ -140,8 +115,7 @@ while True:
         except KeyboardInterrupt:
             Exiting()
             print("Exiting")
-            sys.exit()
-            board.shutdown()
+            break
             
             
     
