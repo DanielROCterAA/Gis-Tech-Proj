@@ -5,7 +5,7 @@ body {
 }
 
 header {
-    background-color: #009246;
+    background-color: #990000;
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -27,7 +27,7 @@ main {
     margin: 10px;
     padding: 20px;
     text-align: center;
-    background-color: #fff;
+    background-color: #990000;
     box-shadow: 2px 2px 5px #888888;
     max-width: 300px;
     transition: transform 0.2s;
@@ -44,14 +44,14 @@ main {
 
 .price {
     font-weight: bold;
-    color: #ffcc29;
+    color: #000000;
     font-size: 24px;
     margin: 10px 0;
 }
 
 .order-button {
-    background-color: #009246;
-    color: #fff;
+    background-color: #ffffff;
+    color: #000000;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
@@ -64,7 +64,7 @@ main {
 }
 
 .description {
-    color: #666;
+    color: #000000;
     font-size: 16px;
 }
 
@@ -106,7 +106,7 @@ nav a {
 
 #contact {
     text-align: center;
-    background-color: #f7f7f7;
+    background-color: #990000;
     padding: 20px;
     border: 1px solid #ddd;
     margin: 20px;
@@ -242,4 +242,27 @@ nav a {
 
 #orders tbody tr:nth-child(even) {
     background-color: #f0f0f0;
+}
+
+body {
+    background-image: url("/images/background3.jpeg");
+    background-size: 100%;
+    /* Hier wordt de achtergrondafbeelding uitgezoomd met 120% van de oorspronkelijke grootte */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.mySlides {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
 }
