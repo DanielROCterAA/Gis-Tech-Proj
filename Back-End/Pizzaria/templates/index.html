@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Luigi and Mario Pizzeria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1>Luigi and Mario Pizzeria</h1>
+        <nav>
+            <div id="shopping-cart">
+                <form method='POST' action="{{ url_for('shopping_cart') }}">
+                    <input type="submit" name="Shopping Cart" value="Shopping Cart">
+                    <input type="hidden" id="orderId" name="orderId" value="{{ order_id }}">
+                </form>
+            </div>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="menu">
+        <h2>Menu</h2>
+        <p>Choose your pizza!</p>
+        <form method='POST' action="{{ url_for('menu') }}">
+            <input type="submit" name="Pizza Margherita" value="Pizza Margherita">
+            <input type="submit" name="Pizza Pepperoni" value="Pizza Pepperoni">
+            <input type="submit" name="Pasta Carbonara" value="Pasta Carbonara">
+            <input type="hidden" id="orderId" name="orderId" value="{{ order_id }}">
+        </form>
+    </section>
+    
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Luigi and Mario Pizzeria has been your place for the best pizzas and Italian dishes for over 20 years.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Contact us for reservations and inquiries.</p>
+        <address>
+            Address: 123 Kruisstraat, Eindhoven<br>
+            Phone: (123) 456-7890(Fake)<br>
+            Email: <a href="mailto:info@luigiandmario.com">info@luigiandmario.com (Fake)</a>
+        </address>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Luigi and Mario Pizzeria</p>
+    </footer>
+</body>
+
+</html>
