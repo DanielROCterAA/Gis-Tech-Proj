@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi and Mario Pizzeria</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Luigi and Mario Pizzeria</h1>
+        <nav>
+            <div id="shopping-cart">
+                <a href="#" onclick="document.getElementById('cartForm').submit();">
+                    <img src="static/shoppingcart.png" alt="Shopping Cart">
+                </a>
+                <form method='POST' action="{{ url_for('shopping_cart') }}" id="cartForm" style="display: none;">
+                    <input type="hidden" name="orderId" value="{{ order_id }}">
+                </form>
+            </div>
+            <ul>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="menu">
+        <h2>Your order</h2>
+        <p>Check your pizza's!</p>
+        <ul>
+            {%for i in range(len)%}
+            <li>
+                {{ pizza_list[i] }}
+            </li>
+            {%endfor%}
+        </ul>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <address>
+            Address: 123 Kruisstraat, Eindhoven<br>
+            Phone: (123) 456-7890 (Fake)<br>
+            Email: <a href="mailto:info@luigiandmario.com">info@luigiandmario.com (Fake)</a>
+        </address>
+    </section>
+
+</body>
+
+</html>

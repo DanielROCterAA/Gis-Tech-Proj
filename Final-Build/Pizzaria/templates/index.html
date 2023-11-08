@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+    <header>
+        <h1>Luigi and Mario Pizzeria</h1>
+        <nav>
+            <div id="shopping-cart">
+                <a href="#" onclick="document.getElementById('cartForm').submit();">
+                    <img src="static/shoppingcart.png" alt="Shopping Cart">
+                </a>
+                <form method='POST' action="{{ url_for('shopping_cart') }}" id="cartForm" style="display: none;">
+                    <input type="hidden" name="orderId" value="{{ order_id }}">
+                </form>
+            </div>
+            <div id="logo">
+                <a href="/"><img src="static/MarioLuigi.jpg" alt="MarioLuigi"></a>
+            </div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+</head>
+
+<body>
+    <main>
+        <form method='POST' action="{{ url_for('menu') }}">
+            <input type="hidden" id="orderId" name="orderId" value="{{ order_id }}">
+            <div class="pizza">
+                <img src="static/marherita.jpg" alt="Pizza Margherita">
+                <h2>Pizza Margherita</h2>
+                <p class="description">Tomatensaus, mozzarella, basilicum</p>
+                <p class="price">€8.99</p>
+                <input type="submit" name="Pizza Margherita" value="Add to Cart"  onclick="toggle_popup()">
+            </div>
+            <div class="pizza">
+                <img src="static/pepperoni.jpg" alt="Pizza Pepperoni">
+                <h2>Pizza Pepperoni</h2>
+                <p class="description">Tomatensaus, mozzarella, pepperoni</p>
+                <p class="price">€10.99</p>
+                <input type="submit" name="Pizza Pepperoni" value="Add to Cart" onclick="toggle_popup()">
+            </div>
+        </form>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </main>
+</body>
+<section id="contact">
+    <h2>Contact Us</h2>
+    <address>
+        Address: 123 Kruisstraat, Eindhoven<br>
+        Phone: 040 12345678<br>
+        Email: <a href="mailto:info@luigiandmario.com">info@luigiandmario.com</a>
+    </address>
+</section>
+
+
+</html>

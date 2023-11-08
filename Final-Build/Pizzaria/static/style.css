@@ -1,0 +1,361 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #fff;
+    color: #990000;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.pizza {
+    border: 1px solid #990000;
+    margin: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 2px 2px 5px #888888;
+    max-width: 300px;
+    transition: transform 0.2s;
+}
+
+.pizza:hover {
+    transform: scale(1.05);
+}
+
+.pizza img {
+    width: 200px;
+    height: 150px;
+}
+
+.pizza h2 {
+    color: #990000;
+}
+
+.price {
+    font-weight: bold;
+    color: #990000;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.order-button {
+    background-color: #ffffff;
+    color: #990000;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.2s;
+}
+
+.order-button:hover {
+    background-color: #33cc33;
+}
+
+.description {
+    color: #990000;
+    font-size: 16px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #990000;
+}
+
+#shopping-cart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#shopping-cart a img {
+    width: 50px;
+    height: 50px;
+}
+
+#logo {
+    position: absolute;
+    top: 10px;
+    right: 40;
+}
+
+#logo a img {
+    width: 130px;
+    height: 100px;
+}
+
+#contact {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #fff;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+#contact h2 {
+    font-size: 24px;
+    color: #990000;
+}
+
+#contact p {
+    font-size: 16px;
+    color: #990000;
+}
+
+#contact address {
+    font-size: 16px;
+    color: #990000;
+}
+
+#contact address a {
+    text-decoration: none;
+    color: #990000;
+}
+
+#contact address a:hover {
+    text-decoration: underline;
+}
+
+#menu {
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-radius: 5px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+#menu h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+#menu form {
+    text-align: left;
+}
+
+#menu label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+#menu input {
+    width: 100%;
+    padding: 5px;
+    margin: 3px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+#menu button {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#menu p,
+#menu ul {
+    margin: 10px 0;
+}
+
+#menu ul li {
+    list-style: none;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 5px;
+}
+
+#menu button:hover {
+    background-color: #ff4400;
+}
+
+
+body {
+    background-image: url("/static/background6.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* .mySlides {
+    border-radius: 30px;
+} */
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.openingstijden table {
+    width: auto;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.openingstijden th,
+.openingstijden td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.openingstijden th {
+    background-color: #f2f2f2;
+}
+
+.openingstijden td {
+    background-color: #fff;
+    color: #990000;
+}
+
+.openingstijden tr {
+    color: #990000;
+}
+
+.openingstijden {
+    max-width: 300px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #990000;
+    text-align: center;
+    padding: 10px;
+}
+
+
+.delivery-information {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.delivery-information form {
+    width: 90%;
+}
+
+.delivery-information label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.delivery-information input {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.delivery-information button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.delivery-information button:hover {
+    background-color: #0056b3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fff;
+    color: #990000;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #fff;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #990000;
+    border-radius: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #990000;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+}
+
+.dashboard-header {
+    color: #990000;
+}
+
+
+
+
+
+
+
+.center-form{
+    text-align: center;
+}
+

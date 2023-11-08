@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luigi and Mario Pizzeria</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Luigi and Mario Pizzeria</h1>
+        <nav>
+            <div id="shopping-cart">
+                <a href="#" onclick="document.getElementById('cartForm').submit();">
+                    <img src="static/shoppingcart.png" alt="Shopping Cart">
+                </a>
+                <form method='POST' action="{{ url_for('shopping_cart') }}" id="cartForm" style="display: none;">
+                    <input type="hidden" name="orderId" value="{{ order_id }}">
+                </form>
+            </div>
+            <ul>
+                <li><a href="/menu">Menu</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="menu">
+        <h2>Your order</h2>
+        <p>Check your pizza's!</p>
+        <ul>
+            {%for i in range(len)%}
+            <li>
+                {{ pizza_list[i] }}
+            </li>
+            {%endfor%}
+        </ul>
+
+        <h2>Delivery Information</h2>
+        <form method="POST" action="{{ url_for('place_order') }}">
+            <input type="hidden" name="session_id" value="{{ session_id }}">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" required><br><br>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" required><br><br>
+
+            <label for="phone-number">Phone Number:</label>
+            <input type="tel" id="phone-number" name="phone-number" required><br><br>
+
+            <button type="submit">Place Order!</button>
+        </form>
+    </section>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>Luigi and Mario Pizzeria has been your place for the best pizzas and Italian dishes for over 20 years.</p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Contact us for reservations and inquiries.</p>
+        <address>
+            Address: 123 Kruisstraat, Eindhoven<br>
+            Phone: (123) 456-7890 (Fake)<br>
+            Email: <a href="mailto:info@luigiandmario.com">info@luigiandmario.com (Fake)</a>
+        </address>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Luigi and Mario Pizzeria</p>
+    </footer>
+</body>
+
+</html>
